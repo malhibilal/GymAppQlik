@@ -15,20 +15,19 @@ import lombok.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @NotBlank(message = "name should not be blank")
-    @Size(min = 2,max = 20, message = "minimum 2 and maximum 20 characters are allowed")
-    private String firstName;
-    @NotBlank(message = "name should not be blank")
-    @Size(min = 2,max = 20, message = "minimum 2 and maximum 20 characters are allowed")
-    private String lastName;
-    @NotEmpty(message = "Phone number is required")
-    @Size(max = 20, message = "Phone number is too long")
-    private String phoneNumber;
+    private int id;
+
+    @NotBlank(message = "Name field is required !!")
+    @Size(min = 2,max = 20,message = "min 2 and max 20 characters are allowed !!")
+    private String name;
     @Column(unique = true)
     private String email;
-    @Size(min= 5, message = "password must be of minimum 5 characters")
     private String password;
+    private String role;
+    private boolean enabled;
+    private String imageUrl;
+    @Column(length = 500)
+    private String about;
 
 }
 

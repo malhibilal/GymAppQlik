@@ -6,19 +6,25 @@ import QlikGym.com.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
-    // this method will load the user
+
     @Override
-    public UserDetails loadUserByUsername(String email) throws UserNotFoundException {
-        User user=userRepository.findByEmail(email);
-        if(user==null){
-            throw new UserNotFoundException("User not found !!");
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        // fetching user from database
+
+        User user = userRepository.getUserByUserName(username);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("Could not found user !!");
         }
-        // we have to make an object of CustomUserDetails
-        CustomUserDetails customUserDetails=new CustomUserDetails(user);
+
+        CustomUserDetails customUserDetails = new CustomUserDetails(user);
+
         return customUserDetails;
     }
 

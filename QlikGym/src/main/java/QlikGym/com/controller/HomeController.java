@@ -1,7 +1,7 @@
 package QlikGym.com.controller;
 
-import QlikGym.com.controller.helper.MyMessage;
 import QlikGym.com.entities.User;
+import QlikGym.com.helper.Message;
 import QlikGym.com.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -34,49 +35,61 @@ public class HomeController {
     }
 
     @GetMapping("/signup")
-    public String signUp(Model model){
-        model.addAttribute("title", "Sign up");
+    public String signup(Model model) {
+        model.addAttribute("title", "Register - CosPlay-QlikGym");
         model.addAttribute("user", new User());
         return "signup";
     }
+
     // register a user
-    @PostMapping("/register")
+    @PostMapping("/do_register")
     // @ModelAttribute is used when we have to get data from the user ,
-    public String registerUser(@Valid @ModelAttribute User user, BindingResult bindingResult,
-                               Model model , HttpSession session) {
+    public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult,
+                               @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model,
+                               HttpSession session) {
+
         try {
 
-            if(bindingResult.hasErrors()) {
-                System.out.println("ERROR"+bindingResult.toString());
-                model.addAttribute("user",user);
+            if (!agreement) {
+                System.out.println("You have not agreed the terms and conditions");
+                throw new Exception("You have not agreed the terms and conditions");
+            }
+
+            if (bindingResult.hasErrors()) {
+                System.out.println("ERROR " + bindingResult.toString());
+                model.addAttribute("user", user);
                 return "signup";
             }
 
+            user.setRole("ROLE_USER");
+            user.setEnabled(true);
+            user.setImageUrl("default.png");
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            model.addAttribute("user", user);
-            User result = userRepository.save(user);
-            // when all the data has been sent successfully, we will set the user to blank
+
+            System.out.println("Agreement " + agreement);
+            System.out.println("USER " + user);
+
+            User registeredUser = this.userRepository.save(user);
+            model.addAttribute("user",registeredUser);
+            // to make the signup form blank
             model.addAttribute("user", new User());
-            // to print the message that it has registered successfully
-            session.setAttribute("message",new MyMessage("Registered Successfully","alert-success"));
 
-            return "signup";
-
+            session.setAttribute("message", new Message("Successfully Registered !!", "alert-success"));
+          //  return "signup";
+            return "login";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("user", user);
-
-            session.setAttribute("message",new MyMessage("something went wrong!! "+e.getMessage(),"alert-danger"));
+            session.setAttribute("message", new Message("Something Went wrong !! " + e.getMessage(), "alert-danger"));
             return "signup";
         }
 
     }
 
-
-
     // handler for custom login
-    @GetMapping ("/signin")
-    public String customlogin(Model model){
+    @GetMapping("/signin")
+    public String customLogin(Model model)
+    {
         model.addAttribute("title","Login Page");
         return "login";
     }

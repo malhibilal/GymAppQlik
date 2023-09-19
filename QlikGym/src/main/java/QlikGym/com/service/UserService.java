@@ -26,11 +26,11 @@ public class UserService {
 
         // Create a new user
         User newUser = new User();
-        newUser.setFirstName(user.getFirstName());
-        newUser.setLastName(user.getLastName());
-        newUser.setPhoneNumber(user.getPhoneNumber());
+        newUser.setName(user.getName());
+        newUser.setRole(user.getRole());
         newUser.setEmail(user.getEmail());
         newUser.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        newUser.setAbout(user.getAbout());
         return userRepository.save(newUser);
     }
 
@@ -42,8 +42,8 @@ public class UserService {
             throw new Exception("User not found.");
         }
 
-        // Check if the password matches
-        if (!user.getPassword().equals(password)) {
+        // Check if the password matches (compare hashed passwords)
+        if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new Exception("Invalid password.");
         }
 
@@ -55,11 +55,11 @@ public class UserService {
                 .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + userId));
 
         // Update user data
-        existingUser.setFirstName(updatedUser.getFirstName());
-        existingUser.setLastName(updatedUser.getLastName());
-        existingUser.setPhoneNumber(updatedUser.getPhoneNumber());
+        existingUser.setName(updatedUser.getName());
         existingUser.setEmail(updatedUser.getEmail());
         existingUser.setPassword(this.passwordEncoder.encode(updatedUser.getPassword()));
+        existingUser.setRole(updatedUser.getRole());
+        existingUser.setAbout(updatedUser.getAbout());
 
         return userRepository.save(existingUser);
     }
