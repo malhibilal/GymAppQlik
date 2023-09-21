@@ -46,9 +46,11 @@ public class HomeController {
     // @ModelAttribute is used when we have to get data from the user ,
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult,
                                @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model,
+                               @RequestParam(value = "adminRegistration", defaultValue = "false") boolean adminRegistration,
                                HttpSession session) {
 
         try {
+
 
             if (!agreement) {
                 System.out.println("You have not agreed the terms and conditions");
@@ -60,8 +62,12 @@ public class HomeController {
                 model.addAttribute("user", user);
                 return "signup";
             }
-
-            user.setRole("ROLE_USER");
+            if(adminRegistration){
+                // Set the role of the user to "ROLE_ADMIN"
+                user.setRole("ROLE_ADMIN");
+            }else {
+                user.setRole("ROLE_USER");
+            }
             user.setEnabled(true);
             user.setImageUrl("default.png");
             user.setPassword(passwordEncoder.encode(user.getPassword()));
