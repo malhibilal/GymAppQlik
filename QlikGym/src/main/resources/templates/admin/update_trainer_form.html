@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="admin/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8" />
+  <title>this is home page</title>
+</head>
+<body>
+<section>
+
+
+  <div class="card mr-3 ml-3">
+
+    <div class="card-body">
+
+      <h1 class="text-center">Update your Trainer</h1>
+
+      <div class="container-fluid mt-1">
+
+        <div class="row">
+
+          <div class="col-md-8 offset-md-2">
+
+            <form action="#"
+                  th:object="${trainer}"
+                  enctype="multipart/form-data"
+                  method="POST"
+                  th:action="@{/admin/process-update}"
+                  class="mt-2"
+            >
+
+             <input type="hidden" th:value="${trainer.id}" name="id" />
+
+
+              <!-- Name  -->
+
+              <div class="input-group">
+
+                <div class="input-group-prepend">
+
+                  <div class="input-group-text ">
+
+                    <i class="fa fa-plus"></i>
+
+                  </div>
+
+                </div>
+
+                <input th:value="${trainer.name}" required type="text"
+                       id="name" name="name"
+                       placeholder="Enter Name here" class="form-control" />
+              </div>
+
+
+              <!-- description  -->
+
+              <div class="input-group mt-3">
+
+                <div class="input-group-prepend">
+
+                  <div class="input-group-text ">
+
+                    <i class="fas fa-user-alt"></i>
+
+                  </div>
+
+                </div>
+
+                <input th:value="${trainer.description}"
+                       required type="text" id="description"
+                       name="description" placeholder="Enter description here"
+                       class="form-control" />
+
+              </div>
+              <!-- contact info -->
+              <div class="input-group mt-3">
+
+                <div class="input-group-prepend">
+
+                  <div class="input-group-text ">
+
+                    <i class="fa fa-phone"></i>
+
+                  </div>
+
+                </div>
+
+                <input th:value="${trainer.contactInfo}"
+                       required min="10"  type="text"
+                       id="contactInfo" name="contactInfo"
+                       placeholder="Enter contactInfo here" class="form-control" />
+
+              </div>
+              <!--  Hourly rate -->
+
+              <div class="input-group mt-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text ">
+                    <i class="fa fa-briefcase"></i>
+                  </div>
+                </div>
+                <input  th:value="${trainer.hourlyRate}"
+                        required type="number"
+                        id="hourlyRate" name="hourlyRate"
+                        placeholder="Enter hourly rate here"
+                        class="form-control" />
+              </div>
+                <!-- trainer image, a bit different from the others -->
+                <div class="container text-center">
+                    <img style="width:200px; height: 200px;"
+                         class="img-fluid my_profile_pic "
+                         src="" th:src="@{'/img/'+${trainer.image}}" alt=""/>
+                </div>
+                <p class="text-secondary">Choose a new profile picture</p>
+                <div class="custom-file">
+                    <input type="file" name="profileImage"/>
+                </div>
+
+              <div class="container text-center">
+                <button class="btn btn-outline-primary mt-4">Save Contact</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+          referrerpolicy="origin"></script>
+
+  <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
+
+</section>
+</body>
+</html>

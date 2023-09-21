@@ -16,13 +16,13 @@ public class Trainer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
     private String description;
     private String contactInfo;
     private double hourlyRate;
     private boolean available;
+    @Column(name = "image")
+    private String  image;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "created_by") // This specifies the foreign key column name
     @JsonIgnore
