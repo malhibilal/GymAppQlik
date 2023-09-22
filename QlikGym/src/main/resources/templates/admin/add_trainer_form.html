@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8" />
+    <title>this is home page</title>
+</head>
+<body>
+<section>
+
+
+    <div class="card mr-3 ml-3">
+
+        <div class="card-body">
+
+            <h1 class="text-center">Add Trainer</h1>
+
+            <div class="container-fluid mt-1">
+
+                <div class="row">
+
+                    <div class="col-md-8 offset-md-2">
+                        <form action="#" th:object="${trainer}" enctype="multipart/form-data"
+                              method="POST" th:action="@{/admin/process-trainer}" class="mt-2">
+
+                            <!-- Hidden input for ID -->
+                            <input type="hidden" name="id" th:value="${trainer.id}" />
+
+
+                            <!-- First Name  -->
+
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+
+                                    <div class="input-group-text ">
+
+                                        <i class="fa fa-plus"></i>
+
+                                    </div>
+
+                                </div>
+
+                                <input required type="text" id="firstName"
+                                       name="name"
+                                       placeholder="Enter Name here"
+                                       class="form-control" />
+
+                            </div>
+
+
+                            <!-- Description  -->
+
+                            <div class="input-group mt-3">
+
+                                <div class="input-group-prepend">
+
+                                    <div class="input-group-text ">
+
+                                        <i class="fas fa-user-alt"></i>
+
+                                    </div>
+
+                                </div>
+
+                                <input required type="text" id="description" name="description" placeholder="Enter description" class="form-control" />
+
+                            </div>
+                            <!-- contactInfo -->
+                            <div class="input-group mt-3">
+
+                                <div class="input-group-prepend">
+
+                                    <div class="input-group-text ">
+
+                                        <i class="fa fa-phone"></i>
+
+                                    </div>
+
+                                </div>
+
+                                <input required min="5"  type="text" id="contactInfo" name="contactInfo" placeholder="Enter contactInfo  here" class="form-control" />
+
+                            </div>
+
+
+                            <!-- hourly rate  -->
+
+                            <div class="input-group mt-3">
+
+                                <div class="input-group-prepend">
+
+                                    <div class="input-group-text ">
+
+                                        <i class="fa fa-phone"></i>
+
+                                </div>
+
+                            </div>
+
+                                <input required type="text" id="rate" name="hourlyRate" placeholder="Enter hourlyRate here" class="form-control" />
+
+                            </div>
+                            <!-- available -->
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="far fa-check-circle"></i>
+                                    </div>
+                                </div>
+                                <label for="available">Available:</label>
+                                <input type="checkbox" id="available" name="available" class="form-check-input" />
+                            </div>
+                            <!-- contact image, a bit different from the others -->
+                            <div class="custom-file">
+                                <input type="file" name="profileImage"/>
+                            </div>
+
+                            <div class="container text-center">
+                                <button class="btn btn-outline-primary">Save Trainer</button>
+
+                            </div>
+
+
+
+
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
+    <script>
+        $(document).ready(() => {
+          $(".item").removeClass("active");
+          $("#add-link").addClass("active");
+        });
+      </script>
+
+</section>
+</body>
+</html>

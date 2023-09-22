@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="normal/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Appointment</title>
+</head>
+<body>
+<section>
+  <div class="card mr-3 ml-3">
+    <div class="card-body">
+      <h1 class="text-center">Book an Appointment</h1>
+      <div class="container-fluid mt-1">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+
+
+            <form  action="#" th:object="${appointment}" method="POST"
+                   enctype="multipart/form-data"
+                   th:action="@{/user/process-appointment}" class="mt-2">
+
+              <!-- Trainer Selection -->
+              <div class="form-group">
+                <label for="trainer">Select Trainer:</label>
+                <select id="trainer" name="trainer.id" class="form-control" required>
+                  <!-- Use Thymeleaf to iterate over the list of available trainers -->
+                  <option th:each="trainer : ${availableTrainers}"
+                          th:value="${trainer.id}" th:text="${trainer.name}"></option>
+                </select>
+              </div>
+
+              <!-- Hidden input field for selectedTrainerId -->
+              <input type="hidden" id="selectedTrainerId" name="selectedTrainerId" th:value="0" />
+
+              <!-- Date and Time -->
+              <div class="form-group">
+                <label for="dateTime">Date and Time:</label>
+                <input type="datetime-local" id="dateTime" name="dateTime"
+                       class="form-control" required>
+              </div>
+              <!-- Location -->
+              <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" class="form-control" required>
+              </div>
+              <!-- Notes -->
+              <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes" class="form-control" rows="4"></textarea>
+              </div>
+              <!-- Submit Button -->
+              <div class="container text-center">
+                <button type="submit" class="btn btn-outline-primary">Book Appointment</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+console.log("Script is running.");
+    function updateSelectedTrainerId() {
+        var dropdown = document.getElementById("trainer");
+        var selectedOption = dropdown.options[dropdown.selectedIndex];
+        var selectedTrainerId = selectedOption.value;
+         <!--Debugging statement to log the selected trainer's ID-->
+        console.log("Selected Trainer ID: " + selectedTrainerId);
+        document.getElementById("selectedTrainerId").value = selectedTrainerId;
+    }
+    document.getElementById("trainer").addEventListener("change", updateSelectedTrainerId);
+
+
+
+<!-- JavaScript code -->
+
+
+</script>
+</section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>This is home page</title>
+</head>
+<body>
+<section>
+    <h1> Trainer details</h1>
+
+    <div class="card mr-3 ml-3" th:if="${trainer}">
+        <div class="card-body">
+            <div class="container text-center">
+               <!-- <img style="height: 200px; width: 200px;" class="my_profile_pic"
+                     src="" th:src="@{'/img/'+${contact.image}}" alt="profile photo"/>
+-->
+                <h3 class="mt-3"><span th:text="${trainer.name}"></span> > </h3>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">SCM2023 <span th:text="${trainer.id}"></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td><span th:text="${trainer.description}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Contact Info</th>
+                        <td><span th:text="${trainer.contactInfo}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Hourly Rate</th>
+                        <td><span th:text="${trainer.hourlyRate}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="description mt-3">
+
+                    <th:block th:utext="${trainer.description}"></th:block>
+                </div>
+                <div class="container mt-3">
+                  <button th:onclick="|deleteTrainer(${trainer.id})|"
+                            class="btn btn-danger btn-block">Delete</button>
+
+                   <form method="post" th:action="@{'/admin/update-trainer/'+${trainer.id}}"
+                          class="mt-2">
+                        <button type="submit" class="btn btn-block btn-primary">Update</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <h1 th:unless="${trainer}" class="text-center p-3 bg-danger text-white ">
+        you do not have the permission to see this trainer</h1>
+
+</section>
+
+
+</body>
+</html>
+
