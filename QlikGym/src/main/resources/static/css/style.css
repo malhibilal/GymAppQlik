@@ -121,21 +121,17 @@ body {
 
 .active{
 	background:#009688 !important;
-	color:white!important;
-}
-
-
-*/
+	color:w
 body{
 background: #e2e2e2 !important;
 }
 .bg-primary{
-background: #009688 !important;
+background: #820a74 !important;
 }
 .banner{
 width:100%;
 height:93vh;
-background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(../img/image.jpg);
+background:linear-gradient(rgba(0,0,0,.10),rgba(0,0,0,.10)),url(../img/gym.jpg);
 color:white;
 background-size:cover;
 }
@@ -155,6 +151,7 @@ background:#ffffff;
 
 #login .container #login-row #login-column #login-box #login-form .form-group {
   margin-bottom: 15px; /* Add margin bottom to form-group for spacing */
+
 }
 #login .container #login-row #login-column #login-box #login-form .form-group label {
   display: block; /* Display label elements as blocks for proper alignment */
@@ -196,6 +193,7 @@ background:#ffffff;
 	padding: 10px 25px;
 	text-decoration: none;
 	color: gray;
+
 }
 
 .sidebar a:hover {
@@ -226,6 +224,20 @@ height: 30px;
 object-fit: cover;
 border-radius: 50%;
 }
+.my_profile_picture-admin{
+border-radius: 50%;
+
+}
+.text-purple{
+color:#820a74;
+font-weight: bold;
+background-color:
+}
+.text-purple1{
+
+background-color:#820a74;
+color: white;
+}
 
 .search-container{
 position: relative;
@@ -242,6 +254,6 @@ display: none;
 
 }
 .active{
-background:#009688 !important;
+background:#820a74 !important;
 color: white !important;
 }

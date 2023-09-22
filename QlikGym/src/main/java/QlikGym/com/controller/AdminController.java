@@ -79,60 +79,6 @@ public class AdminController {
         return "admin/add_trainer_form";
     }
 
-
-    // processing add trainer form
-
-    // Handle form submission to add a new Trainer
-
-    // Handle form submission to update a Trainer
-  //  @PostMapping("/update-trainer")
-/*
-    @PostMapping("/process-trainer")
-    public String updateTrainer(@ModelAttribute Trainer trainer,
-                                @RequestParam("profileImage") MultipartFile file,
-                                Model model, Principal principal) {
-        // Retrieve the Trainer entity you want to update by its ID
-        Long trainerId = trainer.getId();
-        Trainer trainer1 = trainerRepository.findById(trainerId).orElse(null);
-
-        if (trainer != null) {
-            // Update the fields you need
-            trainer1.setName(trainer.getName());
-            trainer1.setDescription(trainer.getDescription());
-            trainer1.setContactInfo(trainer.getContactInfo());
-            trainer1.setHourlyRate(trainer.getHourlyRate());
-            trainer1.setAvailable(trainer.isAvailable());
-            try {
-                // Set createdBy based on the currently logged-in admin user
-                String adminUserName = principal.getName();
-                User adminUser = userRepository.getUserByUserName(adminUserName);
-                trainer1.setCreatedBy(adminUser);
-                if (file.isEmpty()) {
-                    System.out.println("Image is empty");
-                    trainer.setImage("contact_logo.png");
-                } else {
-                    // upload the file to the folder and update the name to contact
-                    trainer.setImage(file.getOriginalFilename());
-                    File saveFile = new ClassPathResource("static/img").getFile();
-                    Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + file.getOriginalFilename());
-                    Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-                    System.out.println("image is uploaded");
-                }
-
-
-                // Save the updated Trainer entity
-                trainerRepository.save(trainer1);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            // Redirect or return a success view
-
-        }
-        return "admin/add_trainer_form"; // Redirect to the admin dashboard or another appropriate view
-    }
-*/
-
     @PostMapping("/process-trainer")
     public String updateTrainer(@ModelAttribute Trainer trainer,
                                 @RequestParam("profileImage") MultipartFile file,
@@ -258,47 +204,6 @@ public class AdminController {
 
     }
 
-    // update contact handler
-
-   /* @PostMapping("/process-update")
-    public String updateHandler(@ModelAttribute Trainer trainer,
-                                @RequestParam("profileImage") MultipartFile file,
-                                Model model, HttpSession session,
-                                Principal principal) {
-        try{
-            Trainer oldTrainer = this.trainerRepository.findById(trainer.getId()).get();
-            //image
-            if (!file.isEmpty()){
-                // rewirte the new file
-                // delete old photo
-                File deleteFile = new ClassPathResource("static/img").getFile();
-                File file1 = new File(deleteFile,oldTrainer.getImage());
-                file1.delete();
-                // update new photo
-
-                File saveFile = new ClassPathResource("static/img").getFile();
-                Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + file.getOriginalFilename());
-                Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);
-                trainer.setImage(file.getOriginalFilename());
-
-
-            }else {
-                trainer.setImage(file.getOriginalFilename());
-            }
-            User user = this.userRepository.getUserByUserName(principal.getName());
-            trainer.setCreatedBy (user);
-            this.trainerRepository.save(trainer);
-            session.setAttribute("message",new Message("Your trainer is updated","success"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-            System.out.println("Trainer NAME " + trainer.getName());
-            System.out.println("Trainer ID " + trainer.getId() );
-            return "redirect:/admin/" + trainer.getId() + "/trainer";
-
-        }
-*/
    @PostMapping("/process-update")
    public String updateHandler(@ModelAttribute Trainer trainer,
                                @RequestParam("profileImage") MultipartFile file,

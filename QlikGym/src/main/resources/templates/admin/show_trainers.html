@@ -57,12 +57,12 @@
               <a href="" th:onClick=" 'deleteTrainer('+ ${t.id} +', event)'"
                  class="btn btn-danger btn-small">Delete</a>-->
               <form th:action="@{'/admin/delete/' + ${t.id}}" method="post">
-                <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                <button type="submit" class="btn text-purple1 btn-small">Delete</button>
               </form>
 
 
               <form method="post" th:action="@{'/admin/update-trainer/'+${t.id}}" class="mt-2">
-                <button type="submit" class="btn btn-primary btn-small">Update</button>
+                <button type="submit" class="btn text-purple1 btn-small">Update</button>
               </form>
 
             </td>
