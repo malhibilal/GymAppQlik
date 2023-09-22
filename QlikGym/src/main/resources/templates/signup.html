@@ -20,13 +20,13 @@
                     </div>
 
 
-                    <div class="container text-center">
+                    <div class="container text-center text-purple">
 
-                        <img class="" style="width: 80px;" src="" th:src="@{/img/membership.png}" alt="" />
+                        <img class="my_profile_picture-admin" style="width: 80px;" src="" th:src="@{/img/gym.jpg}" alt="" />
 
                     </div>
 
-                    <h1 class="text-center">Register Here !!</h1>
+                    <h1 class="text-center text-purple ">Register Here !!</h1>
 
                     <form novalidate action="" th:action="@{/do_register}" method="post" th:object="${user}" >
 
@@ -36,7 +36,7 @@
 
                         <div class="form-group">
 
-                            <label for="name_field">Your Name</label>
+                            <label for="name_field" class="text-purple">Name</label>
 
                             <input
                                     name="name"
@@ -63,7 +63,7 @@
 
                         <div class="form-group">
 
-                            <label for="email_field">Your Email</label>
+                            <label for="email_field" class="text-purple">Email</label>
 
                             <input
                                     name="email"
@@ -83,7 +83,7 @@
 
                         <div class="form-group">
 
-                            <label for="password_field">Your Password</label>
+                            <label for="password_field" class="text-purple">Password</label>
 
                             <input
 
@@ -121,7 +121,7 @@
 
                             />
 
-                            <label for="agreement">Accept terms and conditions</label>
+                            <label for="agreement" class="text-purple">Accept terms and conditions</label>
 
 
 
@@ -129,16 +129,16 @@
                         <!-- Add a checkbox for admin registration -->
                         <div class="form-group form-check">
                             <input type="checkbox" name="adminRegistration" class="form-check-input" id="adminRegistration">
-                            <label class="form-check-label" for="adminRegistration">Register as Admin</label>
+                            <label class="form-check-label text-purple"  for="adminRegistration">Register as Admin</label>
                         </div>
 
 
                         <div class="container text-center">
 
-                            <button type="submit" class="btn bg-primary  text-white">
+                            <button type="submit" class="btn text-purple1 text-white">
                                 Submit
                             </button>
-                            <button type="reset" class="btn btn-warning ">
+                            <button type="reset" class="btn text-purple1">
                                 Reset
                             </button>
 

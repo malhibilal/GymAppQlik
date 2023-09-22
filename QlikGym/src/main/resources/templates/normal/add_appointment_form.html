@@ -9,7 +9,7 @@
 <section>
   <div class="card mr-3 ml-3">
     <div class="card-body">
-      <h1 class="text-center">Book an Appointment</h1>
+      <h1 class="text-center text-purple">Book an Appointment</h1>
       <div class="container-fluid mt-1">
         <div class="row">
           <div class="col-md-8 offset-md-2">
@@ -21,7 +21,7 @@
 
               <!-- Trainer Selection -->
               <div class="form-group">
-                <label for="trainer">Select Trainer:</label>
+                <label for="trainer" class="text-purple">Select Trainer:</label>
                 <select id="trainer" name="trainer.id" class="form-control" required>
                   <!-- Use Thymeleaf to iterate over the list of available trainers -->
                   <option th:each="trainer : ${availableTrainers}"
@@ -34,23 +34,23 @@
 
               <!-- Date and Time -->
               <div class="form-group">
-                <label for="dateTime">Date and Time:</label>
+                <label for="dateTime" class="text-purple">Date and Time:</label>
                 <input type="datetime-local" id="dateTime" name="dateTime"
                        class="form-control" required>
               </div>
               <!-- Location -->
               <div class="form-group">
-                <label for="location">Location:</label>
+                <label for="location" class="text-purple">Location:</label>
                 <input type="text" id="location" name="location" class="form-control" required>
               </div>
               <!-- Notes -->
               <div class="form-group">
-                <label for="notes">Notes:</label>
+                <label for="notes" class="text-purple">Notes:</label>
                 <textarea id="notes" name="notes" class="form-control" rows="4"></textarea>
               </div>
               <!-- Submit Button -->
               <div class="container text-center">
-                <button type="submit" class="btn btn-outline-primary">Book Appointment</button>
+                <button type="submit" class="btn text-purple1">Book Appointment</button>
               </div>
             </form>
           </div>
