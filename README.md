@@ -1,19 +1,18 @@
-﻿# GymAppQlik
- - **Introduction**
-- Gym4U is a simple Spring Boot web application that allows users to manage gym trainers and book appointments with them. It features role-based authentication with Spring Security, CRUD operations for trainers, and appointment booking functionality for users.
--  **Features**
-- User and Admin roles with different privileges.
-- 	Admin can add, update, and delete trainers, along with uploading their pictures.
-- 	users can view trainers, book appointments, and see their own appointments.
-- **Technologies used**
-     - Spring Boot
-     - Spring MVC
-     - Spring Data JPA
-     - Spring Security
-     - Thymeleaf
-     - MySQL
-     - Hibernate
-     - Maven
+# GymAppQlik
+ Gym4U is a simple Spring Boot web application that allows users to manage gym trainers and book appointments with them. It features role-based authentication with Spring Security, CRUD operations for trainers, and appointment booking functionality for users
+# Features
+- User and Admin roles with different privileges
+- Admin can add, update, and delete trainers, along with uploading their picture
+- Users can view trainers, book appointments, and see their own appointments.
+# Technologies used
+- Spring Boot
+- Spring MVC
+- Spring Data JPA
+- Spring Security
+- Thymeleaf
+- MySQL
+- Hibernate
+- Maven
 **Getting Started**
 **Prerequisites**
 - 	Java Development Kit (JDK)
