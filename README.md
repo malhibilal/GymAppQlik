@@ -31,11 +31,11 @@ Following configuration will connect the project with the MYSQL database.
 - spring.jpa.hibernate.ddl-auto=update
 - spring.jpa.show-sql=true
 # Usage
-- Admin
+- **Admin**
   - Access the admin panel by visiting /admin and logging in with admin credentials
   - Add trainers, upload their pictures, update, or delete existing trainers
   - update its existing profile and in settings can change its password
-- User
+- **User**
   - Access the user interface by visiting /user and logging in as a user
   - View trainers and book appointments with them
   - View your booked appointments.
