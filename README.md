@@ -4,9 +4,11 @@
 
 
 # Features
-- User and Admin roles with different privileges
+- User and Admin roles with different privileges can sign up and login 
 - Admin can add, update, and delete trainers, along with uploading their picture
-- Users can view trainers, book appointments, and see their own appointments.
+- Users can view trainers, book appointments, and see their own appointments
+![Sign in](https://github.com/malhibilal/GymAppQlik/blob/1e68d47c714eca2a7b259d35768bcee293c68087/imageforReadmeFile/signin.jpg)
+ 
 # Technologies used
 - Spring Boot
 - Spring MVC
@@ -38,6 +40,7 @@ Following configuration will connect the project with the MYSQL database.
   - Access the admin panel by visiting /admin and logging in with admin credentials
   - Add trainers, upload their pictures, update, or delete existing trainers
   - update its existing profile and in settings can change its password
+   ![Adding a trainer](https://github.com/malhibilal/GymAppQlik/blob/1e68d47c714eca2a7b259d35768bcee293c68087/imageforReadmeFile/add%20trainers.jpg)
 - **User**
   - Access the user interface by visiting /user and logging in as a user
   - View trainers and book appointments with them
