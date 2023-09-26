@@ -6,14 +6,14 @@
 - 	Admin can add, update, and delete trainers, along with uploading their pictures.
 - 	users can view trainers, book appointments, and see their own appointments.
 - **Technologies used**
-- 	Spring Boot
-- 	Spring MVC
-- 	Spring Data JPA
-- 	Spring Security
-- 	Thymeleaf
-- 	MySQL
-- 	Hibernate
-- 	Maven
+     - Spring Boot
+     - Spring MVC
+     - Spring Data JPA
+     - Spring Security
+     - Thymeleaf
+     - MySQL
+     - Hibernate
+     - Maven
 **Getting Started**
 **Prerequisites**
 - 	Java Development Kit (JDK)
