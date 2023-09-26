@@ -32,15 +32,15 @@ Following configuration will connect the project with the MYSQL database.
 - spring.jpa.show-sql=true
 # Usage
 - Admin
-  - Access the admin panel by visiting /admin and logging in with admin credentials.
-  - Add trainers, upload their pictures, update, or delete existing trainers.
+  - Access the admin panel by visiting /admin and logging in with admin credentials
+  - Add trainers, upload their pictures, update, or delete existing trainers
   - update its existing profile and in settings can change its password
-- user
-- Access the user interface by visiting /user and logging in as a user.
-- View trainers and book appointments with them.
-- View your booked appointments.
-- calculate BMI and get message from the gym regarding diet and exercise
-- update profile and can change password
+- User
+  - Access the user interface by visiting /user and logging in as a user
+  - View trainers and book appointments with them
+  - View your booked appointments.
+  - Calculate BMI and get the message from the gym regarding diet and exercise
+  - update profile and can change password
 # Images
 - Images of trainers should be stored in a specific directory (e.g., src/main/resources/static/images/trainers).
 - Update the database to store the image file path.
