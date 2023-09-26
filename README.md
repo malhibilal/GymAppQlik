@@ -2,7 +2,7 @@
  **Introduction**
  Gym4U is a simple Spring Boot web application that allows users to manage gym trainers and book appointments with them. It features role-based authentication with Spring Security, CRUD operations for trainers, and appointment booking functionality for users.
  **Features**
- •	User and Admin roles with different privileges.
+ •User and Admin roles with different privileges.
 •	Admin can add, update, and delete trainers, along with uploading their pictures.
 •	Users can view trainers, book appointments, and see their own appointments.
 **Technologies used**
@@ -37,11 +37,16 @@ spring.jpa.show-sql=true
 Admin**
 •	Access the admin panel by visiting /admin and logging in with admin credentials.
 •	Add trainers, upload their pictures, update, or delete existing trainers.
+•	update its existing profile and in settings can change its password
+
 **User**
 •	Access the user interface by visiting /user and logging in as a user.
 •	View trainers and book appointments with them.
 •	View your booked appointments.
 •	calculate BMI and get message from the gym regarding diet and exercise
+•	update profile and can change password
+
+
 
 **Images**
 Images of trainers should be stored in a specific directory (e.g., src/main/resources/static/images/trainers). Update the database to store the image file path.
