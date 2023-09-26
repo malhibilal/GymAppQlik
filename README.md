@@ -13,18 +13,16 @@
 - MySQL
 - Hibernate
 - Maven
-**Getting Started**
-**Prerequisites**
-- 	Java Development Kit (JDK)
-- 	Apache Maven
-- 	MySQL
-**Configuration**
-**pom.xmlfile**
-- All the relevent dependencies are added in the pom.xml file.
-
-**application.properities**
-- Following configuration will connect the project with MYSQL dataabse.
-
+# Getting Started
+In order to run the project we need the following
+- Java Development Kit (JDK)
+- Apache Maven
+- IDE: IntelliJ/NetBeans/Eclipse
+- MySQL
+# Configuration
+- Project is initialized with the help of spring initializr. All the relevant dependencies which are necessary to run the project are added in the pom.xml file.
+# Database
+Following configuration will connect the project with the MYSQL database.
 - spring.datasource.url=jdbc:mysql://localhost:3306/Gym4U
 - spring.datasource.username=root
 - spring.datasource.password=root
@@ -32,7 +30,7 @@
 - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 - spring.jpa.hibernate.ddl-auto=update
 - spring.jpa.show-sql=true
-**Usage**
+# Usage
 - Admin
   - Access the admin panel by visiting /admin and logging in with admin credentials.
   - Add trainers, upload their pictures, update, or delete existing trainers.
@@ -43,7 +41,7 @@
 - View your booked appointments.
 - calculate BMI and get message from the gym regarding diet and exercise
 - update profile and can change password
-**Images**
+# Images
 - Images of trainers should be stored in a specific directory (e.g., src/main/resources/static/images/trainers).
 - Update the database to store the image file path.
 
